@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.fxml.DepartmentSceneController">
+   <children>
+      <Text fill="WHITE" layoutX="215.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="60.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" />
+      <TextField fx:id="textFieldDepartmentFilter" layoutX="130.0" layoutY="50.0" promptText="Enter search" />
+      <TableView fx:id="tableViewDepartment" layoutX="60.0" layoutY="85.0" prefHeight="230.0" prefWidth="490.0">
+        <columns>
+          <TableColumn fx:id="tableColumnDepartmentName" prefWidth="122.5" text="Name" />
+          <TableColumn fx:id="tableColumnDepartmentAddress" prefWidth="122.5" text="Address" />
+            <TableColumn fx:id="tableColumnDepartmentBudget" prefWidth="122.5" text="Budget" />
+            <TableColumn fx:id="tableColumnDepartmentHeadOfDepartment" prefWidth="122.5" text="Head of Department" />
+        </columns>
+      </TableView>
+      <Button layoutX="60.0" layoutY="325.0" mnemonicParsing="false" onAction="#buttonDepartmentCreateClicked" prefWidth="85.0" style="-fx-background-color: black; -fx-border-color: white;" text="Create" textFill="WHITE" />
+      <Button layoutX="159.0" layoutY="325.0" mnemonicParsing="false" onAction="#buttonDepartmentUpdateClicked" prefWidth="85.0" style="-fx-background-color: black; -fx-border-color: white;" text="Update" textFill="WHITE" />
+      <Button layoutX="257.5" layoutY="325.0" mnemonicParsing="false" onAction="#buttonDepartmentRemoveClicked" prefWidth="85.0" style="-fx-background-color: black; -fx-border-color: white;" text="Remove" textFill="WHITE" />
+      <Button layoutX="362.0" layoutY="325.0" mnemonicParsing="false" onAction="#buttonDepartmentTotalCostClicked" prefWidth="85.0" style="-fx-background-color: black; -fx-border-color: white;" text="Total cost" textFill="WHITE" />
+      <Button layoutX="465.0" layoutY="325.0" mnemonicParsing="false" onAction="#buttonDepartmentShowAllClicked" prefWidth="85.0" style="-fx-background-color: black; -fx-border-color: white;" text="All teachers" textFill="#fcfafa" />
+      <Label fx:id="labelDepartmentErrorMessage" layoutX="176.0" layoutY="367.0" prefHeight="17.0" prefWidth="255.0" textFill="#eb3232" />
+      <Label fx:id="labelDepartmentSuccessMessage" layoutX="176.0" layoutY="367.0" prefHeight="17.0" prefWidth="255.0" textFill="#50a147" />
+      <AnchorPane fx:id="anchorPaneDepartmentCreate" layoutX="70.0" layoutY="35.0" prefHeight="320.0" prefWidth="450.0" style="-fx-background-color: black; -fx-border-color: white;" visible="false">
+         <children>
+            <Text fill="#fcfcfc" layoutX="161.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Department">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+            <Label layoutX="90.0" layoutY="70.0" style="-fx-text-fill: white;" text="Department Name:" textFill="WHITE" />
+            <TextField fx:id="textFieldDepartmentCreateName" layoutX="230.0" layoutY="65.0" prefHeight="26.0" prefWidth="160.0" promptText="Department Name" style="-fx-background-color: white;" />
+            <Label fx:id="labelDepartmentCreateNameError" layoutX="400.0" layoutY="69.0" text=" " textFill="RED" />
+            <Label layoutX="90.0" layoutY="105.0" style="-fx-text-fill: white;" text="Address:" textFill="#f8f3f3" />
+            <TextField fx:id="textFieldDepartmentCreateAddress" layoutX="230.0" layoutY="100.0" prefHeight="26.0" prefWidth="160.0" promptText="Address" style="-fx-background-color: white;" />
+            <Label fx:id="labelDepartmentCreateAddressError" layoutX="400.0" layoutY="105.0" text=" " textFill="RED" />
+            <Label layoutX="90.0" layoutY="140.0" style="-fx-text-fill: white;" text="Budget:" textFill="#f8f6f6" />
+            <TextField fx:id="textFieldDepartmentCreateBudget" layoutX="230.0" layoutY="135.0" prefHeight="26.0" prefWidth="160.0" promptText="Budget" style="-fx-background-color: white;" />
+            <Label fx:id="labelDepartmentCreateBudgetError" layoutX="400.0" layoutY="140.0" text=" " textFill="RED" />
+            <Label layoutX="90.0" layoutY="175.0" text="Head of Department:" textFill="WHITE" />
+            <ComboBox fx:id="comboBoxDepartmentCreateHeadOfDepartment" layoutX="230.0" layoutY="170.0" prefWidth="160.0" promptText="Head of Department" />
+            <Label fx:id="labelDepartmentCreateHeadOfDepartmentError" layoutX="400.0" layoutY="175.0" text=" " textFill="RED" />
+            <Button fx:id="createNewDepartmentCreate" layoutX="135.0" layoutY="230.0" mnemonicParsing="false" onAction="#buttonDepartmentCreateConfirmClicked" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: white;" text="Confirm" textFill="#f2f2f2" />
+            <Button layoutX="245.0" layoutY="230.0" mnemonicParsing="false" onAction="#buttonDepartmentCreateCancelClicked" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: white;" text="Cancel" textFill="#fcfcfc" />
+            <Label fx:id="labelDepartmentCreateErrorMessage" alignment="CENTER" layoutX="84.0" layoutY="283.0" prefHeight="17.0" prefWidth="287.0" textFill="#eb3232" />
+            <Label fx:id="labelDepartmentCreateSuccessMessage" alignment="CENTER" layoutX="84.0" layoutY="283.0" prefHeight="17.0" prefWidth="287.0" textFill="#50a147" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorPaneDepartmentUpdate" layoutX="70.0" layoutY="35.0" prefHeight="320.0" prefWidth="450.0" style="-fx-background-color: black; -fx-border-color: white;" visible="false">
+         <children>
+            <Text fill="#fcfcfc" layoutX="150.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Department">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+            <Label layoutX="90.0" layoutY="70.0" style="-fx-text-fill: white;" text="Department Name:" textFill="WHITE" />
+            <TextField fx:id="textFieldDepartmentUpdateName" layoutX="230.0" layoutY="65.0" prefHeight="26.0" prefWidth="160.0" promptText="Department Name" style="-fx-background-color: white;" />
+            <Label fx:id="labelDepartmentCreateNameError1" layoutX="400.0" layoutY="69.0" text=" " textFill="RED" />
+            <Label layoutX="90.0" layoutY="105.0" style="-fx-text-fill: white;" text="Address:" textFill="#f8f3f3" />
+            <TextField fx:id="textFieldDepartmentUpdateAddress" layoutX="230.0" layoutY="100.0" prefHeight="26.0" prefWidth="160.0" promptText="Address" style="-fx-background-color: white;" />
+            <Label fx:id="labelDepartmentCreateAddressError1" layoutX="400.0" layoutY="105.0" text=" " textFill="RED" />
+            <Label layoutX="90.0" layoutY="140.0" style="-fx-text-fill: white;" text="Budget:" textFill="#f8f6f6" />
+            <TextField fx:id="textFieldDepartmentUpdateBudget" layoutX="230.0" layoutY="135.0" prefHeight="26.0" prefWidth="160.0" promptText="Budget" style="-fx-background-color: white;" />
+            <Label fx:id="labelDepartmentCreateBudgetError1" layoutX="400.0" layoutY="140.0" text=" " textFill="RED" />
+            <Label layoutX="90.0" layoutY="175.0" text="Head of Department:" textFill="WHITE" />
+            <ComboBox fx:id="comboBoxDepartmentUpdateHeadOfDepartment" layoutX="230.0" layoutY="170.0" prefWidth="160.0" promptText="Head of Department" />
+            <Label fx:id="labelDepartmentCreateHeadOfDepartmentError1" layoutX="400.0" layoutY="175.0" text=" " textFill="RED" />
+            <Button fx:id="createNewDepartmentCreate1" layoutX="135.0" layoutY="230.0" mnemonicParsing="false" onAction="#buttonDepartmentCreateConfirmClicked" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: white;" text="Confirm" textFill="#f2f2f2" />
+            <Button layoutX="245.0" layoutY="230.0" mnemonicParsing="false" onAction="#buttonDepartmentCreateCancelClicked" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: white;" text="Cancel" textFill="#fcfcfc" />
+            <Label fx:id="labelDepartmentCreateErrorMessage1" alignment="CENTER" layoutX="84.0" layoutY="283.0" prefHeight="17.0" prefWidth="287.0" textFill="#eb3232" />
+            <Label fx:id="labelDepartmentCreateSuccessMessage1" alignment="CENTER" layoutX="84.0" layoutY="283.0" prefHeight="17.0" prefWidth="287.0" textFill="#50a147" />
+         </children>
+      </AnchorPane>
+      <Button layoutX="539.0" layoutY="362.0" mnemonicParsing="false" onAction="#buttonHomeClicked" style="-fx-background-color: black; -fx-border-color: white;" text="Home" textFill="WHITE" />
+      <AnchorPane fx:id="anchorPaneDepartmentTotalCost" layoutX="67.0" layoutY="2.0" prefHeight="393.0" prefWidth="450.0" style="-fx-background-color: black; -fx-border-color: white;">
+         <children>
+            <Text fx:id="totalCostHead" fill="#f8f5f5" layoutX="143.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TOTAL COST">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <TableView fx:id="tableViewTotalCostDepartments" layoutX="82.0" layoutY="200.0" prefHeight="143.0" prefWidth="287.0">
+              <columns>
+                <TableColumn fx:id="tableColumnDepartmentInTotalCost" prefWidth="141.0" text="Department" />
+                  <TableColumn fx:id="tableColumnCostInTotalCost" prefWidth="145.0" text="Cost" />
+              </columns>
+            </TableView>
+            <ComboBox fx:id="comboBoxDepartmentsTotalCost" layoutX="157.0" layoutY="91.0" onAction="#comboBoxTotalCostUsed" prefWidth="150.0" />
+            <Label fx:id="labelDepartmentInTotalCost" layoutX="73.0" layoutY="96.0" style="-fx-text-fill: white;" text="Department:" textFill="#eeeeee" />
+            <Label fx:id="totalCostDepartments" layoutX="162.0" layoutY="162.0" prefHeight="18.0" prefWidth="128.0" style="-fx-text-fill: white;" textFill="#55c31e" />
+            <Button fx:id="buttonTotalCostOk" layoutX="382.0" layoutY="354.0" mnemonicParsing="false" onAction="#buttonDepartmenTotalCostOkClicked" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: white;" text="OK" />
+            <Button fx:id="buttonTotalCostCancel" layoutX="14.0" layoutY="354.0" mnemonicParsing="false" onAction="#buttonDepartmentTotalCostCancelClicked" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: white;" text="Cancel" />
+            <AnchorPane fx:id="anchorPaneButtonTotalCostCancelMessage" layoutX="100.0" layoutY="71.0" prefHeight="213.0" prefWidth="229.0" style="-fx-background-color: black; -fx-border-color: white;">
+               <children>
+                  <Label fx:id="areYouSure" layoutX="10.0" layoutY="41.0" prefHeight="35.0" prefWidth="214.0" style="-fx-background-color: black; -fx-text-fill: white;" text="Are you sure you would like cancel?" textFill="#f5f5f5" />
+                  <Button fx:id="totalCostCancelYes" layoutX="86.0" layoutY="107.0" mnemonicParsing="false" onAction="#buttonDepartmenTotalCostOkClicked" prefHeight="33.0" prefWidth="58.0" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: white;" text="Yes" />
+                  <Button fx:id="totalCostCancelNo" layoutX="86.0" layoutY="153.0" mnemonicParsing="false" onAction="#buttonDepartmentTotalCostClicked" prefHeight="33.0" prefWidth="58.0" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: white;" text="No" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

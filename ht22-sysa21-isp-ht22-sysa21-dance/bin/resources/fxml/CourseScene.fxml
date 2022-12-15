@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.fxml.CourseSceneController">
+   <children>
+      <Text fill="WHITE" layoutX="250.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Courses">
+         <font>
+            <Font size="30.0" />
+         </font></Text>
+      <Button layoutX="539.0" layoutY="362.0" mnemonicParsing="false" onAction="#buttonHomeClicked" style="-fx-background-color: black; -fx-border-color: white;" text="Home" textFill="WHITE" />
+      <TableView fx:id="tableViewCourses" layoutX="60.0" layoutY="85.0" prefHeight="230.0" prefWidth="490.0">
+        <columns>
+          <TableColumn fx:id="tableColumnCourseName" prefWidth="92.0" text="Name" />
+          <TableColumn fx:id="tableColumnCourseCode" prefWidth="103.0" text="Course Code" />
+            <TableColumn fx:id="tableColumnCourseCredits" prefWidth="73.0" text="Credits" />
+            <TableColumn fx:id="tableColumnCourseType" prefWidth="93.78677368164062" text="Course Type" />
+            <TableColumn fx:id="tableColumnCourseResponsibleTeacher" prefWidth="127.21319580078125" text="Responsible Teacher" />
+        </columns>
+      </TableView>
+      <TextField fx:id="textFieldCourseFilter" layoutX="130.0" layoutY="50.0" promptText="Enter search" />
+      <Text fill="WHITE" layoutX="60.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" />
+      <Button layoutX="200.0" layoutY="325.0" mnemonicParsing="false" onAction="#buttonCourseAddClicked" prefWidth="60.0" style="-fx-background-color: black; -fx-border-color: white;" text="Add" textFill="WHITE" />
+      <Button layoutX="270.0" layoutY="325.0" mnemonicParsing="false" onAction="#buttonCourseUpdateClicked" prefWidth="60.0" style="-fx-background-color: black; -fx-border-color: white;" text="Update" textFill="WHITE" />
+      <Button layoutX="340.0" layoutY="325.0" mnemonicParsing="false" onAction="#deleteCourseButtonClicked" prefWidth="60.0" style="-fx-background-color: black; -fx-border-color: white;" text="Delete" textFill="WHITE" />
+      <Label fx:id="labelCourseErrorMessage" alignment="CENTER" layoutX="172.0" layoutY="367.0" prefHeight="17.0" prefWidth="255.0" text=" " textFill="#f20101" />
+      <AnchorPane fx:id="anchorPaneAddCourse" layoutX="70.0" layoutY="35.0" prefHeight="320.0" prefWidth="450.0" style="-fx-background-color: black; -fx-border-color: white;">
+         <children>
+            <Text fill="WHITE" layoutX="180.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Course">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="90.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course Name:" />
+            <TextField fx:id="textFieldCourseAddName" layoutX="230.0" layoutY="65.0" promptText="Name" />
+            <Label fx:id="labelCourseAddNameError" layoutX="400.0" layoutY="69.0" text=" " textFill="RED" />
+            <Text fill="WHITE" layoutX="90.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Credits:" />
+            <TextField fx:id="textFieldCourseAddCourseCredits" layoutX="230.0" layoutY="100.0" promptText="Credits" />
+            <Label fx:id="labelCourseAddCreditsError" layoutX="400.0" layoutY="105.0" text=" " textFill="RED" />
+            <Text fill="WHITE" layoutX="90.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cycle Type:" />
+            <ComboBox fx:id="comboBoxCourseAddCycleType" layoutX="230.0" layoutY="135.0" prefWidth="160.0" promptText="Cycle Type" />
+            <Label fx:id="labelCourseAddCycleTypeError" layoutX="400.0" layoutY="140.0" text=" " textFill="RED" />
+            <Text fill="WHITE" layoutX="90.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Responsible Teacher:" />
+            <ComboBox fx:id="comboBoxCourseAddResponsible" layoutX="230.0" layoutY="170.0" prefWidth="160.0" promptText="Responsible Teacher" />
+            <Label fx:id="labelCourseAddResponsibleError" layoutX="400.0" layoutY="175.0" text=" " textFill="RED" />
+            <Button layoutX="135.0" layoutY="230.0" mnemonicParsing="false" onAction="#buttonCourseAddConfirmClicked" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: white;" text="Confirm" textFill="WHITE" />
+            <Button layoutX="245.0" layoutY="230.0" mnemonicParsing="false" onAction="#buttonCourseAddCancelClicked" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: white;" text="Cancel" textFill="WHITE" />
+            <Label fx:id="labelCourseAddError" alignment="CENTER" layoutX="84.0" layoutY="283.0" prefHeight="17.0" prefWidth="287.0" text=" " textFill="RED" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorPaneUpdateCourse" layoutX="70.0" layoutY="35.0" prefHeight="320.0" prefWidth="450.0" style="-fx-background-color: black; -fx-border-color: white;">
+         <children>
+            <Text fill="WHITE" layoutX="162.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Course">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
+            <Label layoutX="90.0" layoutY="69.0" text="Course Name:" textFill="WHITE" />
+            <TextField fx:id="textFieldCourseName" layoutX="230.0" layoutY="65.0" promptText="Name" />
+            <Label layoutX="90.0" layoutY="105.0" text="Credits:" textFill="WHITE" />
+            <TextField fx:id="textFieldCourseCredits" layoutX="230.0" layoutY="100.0" promptText="Credits" />
+            <Label layoutX="90.0" layoutY="140.0" text="Cycle Type:" textFill="WHITE" />
+            <ComboBox fx:id="comboBoxCourseUpdateCycleType" layoutX="230.0" layoutY="135.0" prefWidth="160.0" promptText="Cycle Type" />
+            <Label layoutX="90.0" layoutY="175.0" text="Responsible Teacher:" textFill="WHITE" />
+            <ComboBox fx:id="comboBoxCourseResponsibleTeacher" layoutX="230.0" layoutY="170.0" prefWidth="160.0" promptText="Responsible Teacher" />
+            <Button layoutX="135.0" layoutY="230.0" mnemonicParsing="false" onAction="#buttonCourseUpdateConfirmClicked" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: white;" text="Confirm" textFill="WHITE" />
+            <Button layoutX="245.0" layoutY="230.0" mnemonicParsing="false" onAction="#buttonCourseUpdateCancelClicked" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: white;" text="Cancel" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
